@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator Prompt Foto Ai Aesthetic</title>
+
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #eef1f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 35px;
+  border-radius: 15px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+h1 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* BUTTON GROUP */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #2d6cdf;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #1f4fa3;
+}
+
+.btn.active {
+  background: #28a745;
+}
+
+/* HASIL */
+#hasil {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+/* TEXTAREA OUTPUT */
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+/* GENERATE BUTTON */
+.generate {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.generate:hover {
+  background: #cc6200;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+  <h1>Generator Prompt Foto Ai Aesthetic</h1>
+  <h2>Pilih Jumlah orang</h2>
+
+  <div class="button-group">
+    <button class="btn" onclick="pilih(this, 1)">1 Orang</button>
+    <button class="btn" onclick="pilih(this, 2)">2 Orang</button>
+    <button class="btn" onclick="pilih(this, 4)">4 Orang</button>
+  </div>
+
+  <div id="hasil">Belum memilih</div>
+
+  <button class="generate" onclick="generateIklan()">Generate</button>
+
+  <textarea id="output" placeholder="Hasil iklan akan muncul di sini..."></textarea>
+
+</div>
+
+<script>
+let pilihan = 0;
+
+function pilih(element, jumlah) {
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  element.classList.add('active');
+  pilihan = jumlah;
+
+  document.getElementById("hasil").innerText = "Kamu memilih: " + jumlah + " Orang";
+}
+
+function generateIklan() {
+  if (pilihan === 0) {
+    alert("Pilih dulu jumlah model!");
+    return;
+  }
+
+  let hasil = "";
+
+  if (pilihan === 1) {
+    hasil = "buat objek orang ini berdiri sendiri di pantai saat golden hour, cahaya matahari hangat menyinari dari samping, angin meniup rambut dan pakaian dengan lembut, suasana tenang dan dreamy, langit berwarna oranye keemasan dengan gradasi ungu, ombak kecil menyentuh kaki, komposisi minimalis, tone warna soft dan cinematic, depth of field, high detail, aesthetic photography, 4K, natural lighting";
+  } 
+  else if (pilihan === 2) {
+    hasil = "Aesthetic cinematic photo of this people standing together on a quiet beach during sunset, warm golden hour light hitting from the side, soft wind blowing their hair and clothes, peaceful and dreamy atmosphere, pastel sky with orange, purple and pink gradient, gentle waves touching their feet, natural interaction (slight smile, looking at each other or horizon), minimal composition, shallow depth of field, ultra realistic, soft tones, 4K, natural lighting";
+  } 
+  else if (pilihan === 4) {
+    hasil = "A group of four or more friends standing together on a beach during golden hour, warm sunlight casting soft glow from the side, gentle wind moving their hair and outfits naturally, calm ocean waves touching their feet, dreamy and peaceful mood, pastel sky with orange, pink and purple gradient, candid interaction (laughing, walking slowly, enjoying the moment), cinematic composition, minimalism, shallow depth of field, ultra realistic, soft color grading, 4K, natural lighting";
+  }
+
+  document.getElementById("output").value = hasil;
+}
+</script>
+
+</body>
+</html>
